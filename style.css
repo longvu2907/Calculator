@@ -1,0 +1,136 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 13px;
+    font-family: 'monospace', sans-serif;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+.fontsize-small {
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    padding: 20px;
+    background: #333;
+    border-radius: 20px;
+}
+
+.calculator__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 90px;
+    color: white;
+}
+
+.header__brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.brand {
+    font-weight: 900;
+    font-size: 2rem;
+}
+
+.id {
+    font-size: 1.1rem;
+}
+
+.title {
+    color: rgb(175, 0, 58);
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+}
+
+
+.calculator__monitor {
+    width: 300px;
+    height: 100px;
+    background: #ccc;
+    border-radius: 20px;
+    border: 5px solid #2d2929d4;
+}
+
+.monitor__input {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 52px;
+    padding: 15px;
+    padding-bottom: 0px;
+    font-size: 2.5rem;
+    overflow-x: hidden;
+}
+
+.monitor__result {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 15px;
+    padding-top: 0px;
+    font-size: 2.5rem;
+    overflow-x: hidden;
+}
+
+.calculator__button {
+    width: 300px;
+    height: 350px;
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18%;
+    padding: 5px;
+    height: 50px;
+    background: #ccc;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.button__func {
+    background: blue;
+    color: white;
+}
+
+.button:hover  {
+    background: #fff;
+}
+
+.button__func:hover {
+    background: #fff;
+    color: #333;
+}
