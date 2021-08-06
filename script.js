@@ -11,12 +11,12 @@ for (let button of buttons) {
     button.addEventListener('click', function() {
         let monitorInputText =  monitorInput.textContent;
         let monitorResultText = monitorResult.textContent;
-        isRenew = monitorResultText !== '';
         if (this.classList.contains('button__func')) {
             switch (this.textContent) {
                 case 'AC':
                     monitorInputText = '';
                     monitorResultText = '';
+                    isRenew = false;
                     break;
                 case 'DEL':
                     monitorInputText = monitorInputText.slice(0, -1);
@@ -31,23 +31,25 @@ for (let button of buttons) {
                 case '÷':
                     if (isRenew) {
                         monitorInputText = 'Ans';
-                        monitorResultText = '';
+                        isRenew = false; 
                     }
                     monitorInputText += this.textContent;
                     break;
                 case '=':
+                    console.log(monitorInputText);
                     let input = monitorInputText;
-                    console.log(input);
                     input = input.replaceAll(/×/g, '*');
                     input = input.replaceAll(/÷/g, '/');
                     input = input.replaceAll(/PreAns/g, preAns);
                     input = input.replaceAll(/Ans/g, ans);
                     try {
                         var result = eval(input);
+                        if (!Number.isInteger(result)) result = parseFloat(result.toFixed(5));
                     } catch (error) {
                         monitorResultText = 'Invalid Input';
                         break;
                     }
+                    isRenew = true;
                     monitorResultText = result;
                     preAns = ans;
                     ans = result;
@@ -55,6 +57,10 @@ for (let button of buttons) {
             }
         }
         else {
+            if (isRenew) {
+                monitorInputText = '';
+                isRenew = false;
+            }
             monitorInputText += this.textContent;
         }
         monitorInput.textContent = monitorInputText;
