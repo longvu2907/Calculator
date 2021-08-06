@@ -19,7 +19,11 @@ for (let button of buttons) {
                     isRenew = false;
                     break;
                 case 'DEL':
-                    monitorInputText = monitorInputText.slice(0, -1);
+                    if (!!monitorInputText[monitorInputText.length - 1].match(/[A-z]/i)) {
+                        if (!!monitorInputText[monitorInputText.length - 4]?.match(/e/i)) monitorInputText = monitorInputText.slice(0, -6);
+                        else monitorInputText = monitorInputText.slice(0, -3);
+                    }
+                    else monitorInputText = monitorInputText.slice(0, -1);
                     break;
             }
         }
@@ -36,7 +40,6 @@ for (let button of buttons) {
                     monitorInputText += this.textContent;
                     break;
                 case '=':
-                    console.log(monitorInputText);
                     let input = monitorInputText;
                     input = input.replaceAll(/×/g, '*');
                     input = input.replaceAll(/÷/g, '/');
